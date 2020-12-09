@@ -1,6 +1,6 @@
 def read_step(filename):
-    from OCC.STEPControl import STEPControl_Reader
-    from OCC.IFSelect import IFSelect_RetDone, IFSelect_ItemsByEntity
+    from OCC.Core.STEPControl import STEPControl_Reader
+    from OCC.Core.IFSelect import IFSelect_RetDone, IFSelect_ItemsByEntity
 
     step_reader = STEPControl_Reader()
     status = step_reader.ReadFile(filename)
@@ -16,7 +16,7 @@ def read_step(filename):
         raise ValueError('Cannot read the file')
 
 def write_stl(shape, filename, definition=0.1):
-    from OCC.StlAPI import StlAPI_Writer
+    from OCC.Core.StlAPI import StlAPI_Writer
     import os
 
     directory = os.path.split(__name__)[0]
@@ -28,7 +28,7 @@ def write_stl(shape, filename, definition=0.1):
     stl_writer = StlAPI_Writer()
     stl_writer.SetASCIIMode(False)
 
-    from OCC.BRepMesh import BRepMesh_IncrementalMesh
+    from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
     mesh = BRepMesh_IncrementalMesh(shape, definition)
     mesh.Perform()
     assert mesh.IsDone()
