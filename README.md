@@ -7,4 +7,4 @@ Run the project:
 
 The project receives a json with a url for the step file and returns a stl file
 
-The project is based on http://www.pythonocc.org/. Please check documentation there to find help about the converter
+The project is based on https://www.pythonocc.org. Please check documentation there to find help about the converter
